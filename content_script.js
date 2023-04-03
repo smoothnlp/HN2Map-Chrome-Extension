@@ -58,8 +58,13 @@ function createIFrame(url) {
     iframeWrapper.style.height = '100%';
     iframeWrapper.style.zIndex = '1000';
     iframeWrapper.style.background = '#000000';
-    iframeWrapper.style.transition = 'width 0.4s ease-in-out'; // Add a CSS transition for the width
-    document.body.style.transition = 'width 0.4s ease-in-out';
+    iframeWrapper.style.transition = 'width 0.3s ease-in-out'; // Add a CSS transition for the width
+    document.body.style.transition = 'width 0.3s ease-in-out';
+
+    setTimeout(()=>{
+        iframeWrapper.style.transition = ''; // Add a CSS transition for the width
+        document.body.style.transition = '';
+    },1000)
   
     const closeButton = document.createElement('button');
     closeButton.textContent = 'Close';
