@@ -6,7 +6,7 @@ function addCTAButton() {
 
     if (commentButton) {
         const ctaButton = document.createElement('button');
-        ctaButton.textContent = 'visualize on side';
+        ctaButton.textContent = 'visualize';
         // ctaButton.style.position = 'fixed';
         // ctaButton.style.bottom = '20px';
         // ctaButton.style.right = '20px';
@@ -85,6 +85,14 @@ function createIFrame(url) {
     toggleFullScreenButton.style.top = '5px';
     toggleFullScreenButton.style.zIndex = '1001';
     toggleFullScreenButton.onclick = () => {
+        iframeWrapper.style.transition = 'width 0.3s ease-in-out'; // Add a CSS transition for the width
+        document.body.style.transition = 'width 0.3s ease-in-out';
+
+        setTimeout(()=>{
+            iframeWrapper.style.transition = ''; // Add a CSS transition for the width
+            document.body.style.transition = '';
+        },1000)
+      
       if (iframeWrapper.style.width === '100%') {
         iframeWrapper.style.width = '60vw';
         toggleFullScreenButton.textContent = 'Full Screen';
@@ -164,7 +172,7 @@ function createIFrame(url) {
   
     const visualizeLink = document.createElement('a');
     visualizeLink.href = '#';
-    visualizeLink.textContent = 'visualize on side screen';
+    visualizeLink.textContent = 'visualize';
     visualizeLink.onclick = (event) => {
         event.preventDefault();
     
