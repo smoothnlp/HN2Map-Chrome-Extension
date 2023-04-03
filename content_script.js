@@ -54,10 +54,12 @@ function createIFrame(url) {
     iframeWrapper.style.position = 'fixed';
     iframeWrapper.style.right = '0';
     iframeWrapper.style.top = '0';
-    iframeWrapper.style.width = '70vw';
+    iframeWrapper.style.width = '0vw';
     iframeWrapper.style.height = '100%';
     iframeWrapper.style.zIndex = '1000';
     iframeWrapper.style.background = '#000000';
+    iframeWrapper.style.transition = 'width 0.4s ease-in-out'; // Add a CSS transition for the width
+    document.body.style.transition = 'width 0.4s ease-in-out';
   
     const closeButton = document.createElement('button');
     closeButton.textContent = 'Close';
@@ -79,7 +81,7 @@ function createIFrame(url) {
     toggleFullScreenButton.style.zIndex = '1001';
     toggleFullScreenButton.onclick = () => {
       if (iframeWrapper.style.width === '100%') {
-        iframeWrapper.style.width = '70vw';
+        iframeWrapper.style.width = '60vw';
         toggleFullScreenButton.textContent = 'Full Screen';
       } else {
         iframeWrapper.style.width = '100%';
@@ -106,6 +108,10 @@ function createIFrame(url) {
     iframeWrapper.appendChild(iframe);
 
     addResizeHandle(iframeWrapper); // Add this line
+
+    setTimeout(() => {
+        iframeWrapper.style.width = '60vw'; // Animate the width after a short delay
+      }, 100);
   
     return iframeWrapper;
   }
@@ -129,7 +135,7 @@ function createIFrame(url) {
       const iframeWrapper = createIFrame(url);
       iframeWrapper.id = 'hn-visualizer';
       document.body.appendChild(iframeWrapper);
-      document.body.style.width = '30vw';
+      document.body.style.width = '40vw';
       document.body.style.overflowX = 'hidden';
     }
   }
@@ -173,7 +179,7 @@ function createIFrame(url) {
           const iframeWrapper = createIFrame(superusappURL);
           iframeWrapper.id = 'hn-visualizer';
           document.body.appendChild(iframeWrapper);
-          document.body.style.width = '30vw';
+          document.body.style.width = '40vw';
           document.body.style.overflowX = 'hidden';
         }
       };
