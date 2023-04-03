@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "Hacker News Map",
+    "version": "1.0",
+    "description": "Visualize Hacker News post on an interactive map",
+    "action": {
+      "default_icon": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+      }
+    },
+    "permissions": ["activeTab"],
+    "icons": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://news.ycombinator.com/item?id=*", "https://news.ycombinator.com/*"],
+        "js": ["content_script.js"]
+      }
+    ]
+  }
