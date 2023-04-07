@@ -1,12 +1,12 @@
 function addCTAButton() {
     const hnPostId = window.location.href.split('id=')[1];
-    const superusappURL = `https://www.superusapp.com/share/hn2map?sr=true&id=${hnPostId}`;
+    const superusappURL = `https://www.superusapp.com/share/hn2map?card_index=0&id=${hnPostId}`;
 
     const commentButton = document.querySelector("form input:last-child");
 
     if (commentButton) {
         const ctaButton = document.createElement('button');
-        ctaButton.textContent = 'visualize';
+        ctaButton.textContent = 'map view';
         // ctaButton.style.position = 'fixed';
         // ctaButton.style.bottom = '20px';
         // ctaButton.style.right = '20px';
@@ -36,12 +36,12 @@ function addCTAButton() {
         return 
     }
 
-    const superusappURL = `https://www.superusapp.com/share/hn2map?sr=true&id=${hnPostId}`;
+    const superusappURL = `https://www.superusapp.com/share/hn2map?card_index=0&id=${hnPostId}`;
   
     const visualizeLink = document.createElement('a');
     visualizeLink.href = superusappURL;
     visualizeLink.target = '_blank';
-    visualizeLink.textContent = 'visualize';
+    visualizeLink.textContent = 'map view';
   
     commentLink.insertAdjacentElement('afterend', visualizeLink);
     commentLink.insertAdjacentText('afterend', ' | ');
@@ -159,11 +159,11 @@ function createIFrame(url) {
 
   function addSideScreenButton(commentLink) {
     const hnPostId = commentLink.href.split('id=')[1];
-    const superusappURL = `https://www.superusapp.com/share/hn2map?sr=true&id=${hnPostId}`;
+    const superusappURL = `https://www.superusapp.com/share/hn2map?card_index=0&id=${hnPostId}`;
 
     const sideScreenLink = document.createElement('a');
     sideScreenLink.href = '#';
-    sideScreenLink.textContent = 'open on side';
+    sideScreenLink.textContent = 'side view';
     sideScreenLink.onclick = (event) => {
         updateIFrame(commentLink.href);
         const existingIFrameWrapper = document.getElementById('hn-visualizer');
@@ -172,7 +172,7 @@ function createIFrame(url) {
   
     const visualizeLink = document.createElement('a');
     visualizeLink.href = '#';
-    visualizeLink.textContent = 'visualize';
+    visualizeLink.textContent = 'side map';
     visualizeLink.onclick = (event) => {
         event.preventDefault();
     

@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "Hacker News Map",
-    "version": "1.0",
-    "description": "Visualize Hacker News post on an interactive map",
+    "name": "HN2Map",
+    "version": "1.1",
+    "description": "Visualize Hacker News post on an AI-summarized map",
     "action": {
       "default_icon": {
         "16": "icons/icon16.png",
