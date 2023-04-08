@@ -1,16 +1,17 @@
 {
     "manifest_version": 3,
     "name": "HN2Map",
-    "version": "1.1",
+    "version": "1.2",
     "description": "Visualize Hacker News post on an AI-summarized map",
     "action": {
       "default_icon": {
         "16": "icons/icon16.png",
         "48": "icons/icon48.png",
         "128": "icons/icon128.png"
-      }
+      },
+      "default_title": "Open Hacker News"
     },
-    "permissions": ["activeTab"],
+    "permissions": ["activeTab", "tabs"],
     "icons": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",
@@ -21,5 +22,8 @@
         "matches": ["https://news.ycombinator.com/item?id=*", "https://news.ycombinator.com/*"],
         "js": ["content_script.js"]
       }
-    ]
+    ],
+    "background": {
+      "service_worker": "background.js"
+    }
   }

@@ -17,7 +17,7 @@ function addCTAButton() {
             const iframeWrapper = createIFrame(superusappURL);
             iframeWrapper.id = 'hn-visualizer';
             document.body.appendChild(iframeWrapper);
-            document.body.style.width = '30vw';
+            document.body.style.width = '50vw';
             document.body.style.overflowX = 'hidden';
             event.stopPropagation()
             event.preventDefault()
@@ -65,6 +65,49 @@ function createIFrame(url) {
         iframeWrapper.style.transition = ''; // Add a CSS transition for the width
         document.body.style.transition = '';
     },1000)
+
+
+    // add copy link 
+    const shareButton = document.createElement('button');
+    shareButton.innerHTML = 'Share';
+    shareButton.style.position = 'absolute';
+    shareButton.style.top = '5px';
+    shareButton.style.right = '5px';
+    shareButton.style.zIndex = '1000';
+
+    // share notification 
+    function showNotification(message) {
+      const notification = document.createElement('div');
+      notification.innerText = message;
+      notification.style.position = 'absolute';
+      notification.style.top = '40px';
+      notification.style.right = '5px';
+      notification.style.zIndex = '1001';
+      notification.style.padding = '10px';
+      notification.style.borderRadius = '3px';
+      notification.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+      notification.style.color = '#ffffff';
+      notification.style.fontSize = '14px';
+      notification.style.fontFamily = 'Arial, sans-serif';
+      notification.style.fontWeight = 'bold';
+    
+      iframeWrapper.appendChild(notification);
+    
+      setTimeout(() => {
+        notification.remove();
+      }, 3000);
+    }
+
+    shareButton.onclick = async function () {
+      try {
+        await navigator.clipboard.writeText(iframe.src);
+        showNotification('URL copied to clipboard');
+      } catch (err) {
+        console.error('Failed to copy URL', err);
+        showNotification('Failed to copy URL');
+      }
+    };
+    
   
     const closeButton = document.createElement('button');
     closeButton.textContent = 'Close';
@@ -94,7 +137,7 @@ function createIFrame(url) {
         },1000)
       
       if (iframeWrapper.style.width === '100%') {
-        iframeWrapper.style.width = '60vw';
+        iframeWrapper.style.width = '50vw';
         toggleFullScreenButton.textContent = 'Full Screen';
       } else {
         iframeWrapper.style.width = '100%';
@@ -119,11 +162,12 @@ function createIFrame(url) {
     iframeWrapper.appendChild(closeButton);
     iframeWrapper.appendChild(toggleFullScreenButton);
     iframeWrapper.appendChild(iframe);
+    iframeWrapper.appendChild(shareButton);
 
     addResizeHandle(iframeWrapper); // Add this line
 
     setTimeout(() => {
-        iframeWrapper.style.width = '60vw'; // Animate the width after a short delay
+        iframeWrapper.style.width = '50vw'; // Animate the width after a short delay
       }, 100);
   
     return iframeWrapper;
@@ -148,7 +192,7 @@ function createIFrame(url) {
       const iframeWrapper = createIFrame(url);
       iframeWrapper.id = 'hn-visualizer';
       document.body.appendChild(iframeWrapper);
-      document.body.style.width = '40vw';
+      document.body.style.width = '50vw';
       document.body.style.overflowX = 'hidden';
     }
   }
@@ -192,7 +236,7 @@ function createIFrame(url) {
           const iframeWrapper = createIFrame(superusappURL);
           iframeWrapper.id = 'hn-visualizer';
           document.body.appendChild(iframeWrapper);
-          document.body.style.width = '40vw';
+          document.body.style.width = '50vw';
           document.body.style.overflowX = 'hidden';
         }
       };
