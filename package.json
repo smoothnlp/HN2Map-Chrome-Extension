@@ -1,0 +1,31 @@
+{
+  "name": "hn2map-chrome-extension",
+  "version": "1.0.0",
+  "description": "",
+  "main": "background.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smoothnlp/HN2Map-Chrome-Extension.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smoothnlp/HN2Map-Chrome-Extension/issues"
+  },
+  "homepage": "https://github.com/smoothnlp/HN2Map-Chrome-Extension#readme",
+  "dependencies": {
+    "@mozilla/readability": "^0.4.4",
+    "nanoid": "^4.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.4",
+    "vite": "^2.9.15",
+    "@crxjs/vite-plugin": "latest"
+  }
+}
